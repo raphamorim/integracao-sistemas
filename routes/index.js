@@ -14,11 +14,7 @@ var kenobi = require('kenobi'),
 	url = require('url'),
 	moment = require('moment'),
 	fs = require('fs'),
-	passport = require('passport'),
 	Product = Promises.promisifyAll(require('../models/product'));
-
-var LocalStrategy = require('passport-local').Strategy;
-var FacebookStrategy = require('passport-facebook').Strategy;
 
 exports.home = function(req, res) {
 	if (req.user)
