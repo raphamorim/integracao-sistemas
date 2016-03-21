@@ -5,7 +5,7 @@ var configAuth = {
 	'facebookAuth': {
 		'clientID': '594487354052992', // your App ID
 		'clientSecret': '9028da0d10057701732f8f48459f17cf', // your App Secret
-		'callbackURL': 'http://localhost:8080/auth/facebook/callback'
+		'callbackURL': 'http://productfy.herokuapp.com/auth/facebook/callback'
 	}
 };
 
