@@ -6,8 +6,8 @@ var express = require('express'),
 	FacebookStrategy = require('passport-facebook').Strategy,
 	mongoose = require('mongoose'),
 	env = require('./config/environment'),
-	User = require('./models/user')
-bodyParser = require('body-parser'),
+	User = require('./models/user'),
+	bodyParser = require('body-parser'),
 	multer = require('multer'),
 	session = require('express-session'),
 	cookieParser = require('cookie-parser'),
@@ -43,7 +43,7 @@ var configAuth = {
 	'facebookAuth': {
 		'clientID': '594487354052992', // your App ID
 		'clientSecret': '9028da0d10057701732f8f48459f17cf', // your App Secret
-		'callbackURL': 'http://localhost:5000/auth/facebook/callback',
+		'callbackURL': 'http://productfy.herokuapp.com/auth/facebook/callback',
 		'profileFields': ['id', 'displayName', 'name', 'gender', 'photos']
 	}
 };
@@ -55,30 +55,30 @@ passport.deserializeUser(function(obj, done) {
 });
 // Use the FacebookStrategy within Passport.
 passport.use(new FacebookStrategy(configAuth.facebookAuth,
-function(accessToken, refreshToken, profile, done) {
-	User.findOne({
-		'facebook.id': profile.id
-	}, function(err, user) {
-		if (err) {
-			return done(err);
-		}
-		if (!user) {
-			var user = new User({
-				name: profile.displayName,
-				username: profile.username,
-				provider: 'facebook',
-				facebook: profile._json,
-				picture: profile.photos[0].value
-			});
-			user.save(function(err) {
-				if (err) console.log(err);
+	function(accessToken, refreshToken, profile, done) {
+		User.findOne({
+			'facebook.id': profile.id
+		}, function(err, user) {
+			if (err) {
+				return done(err);
+			}
+			if (!user) {
+				var user = new User({
+					name: profile.displayName,
+					username: profile.username,
+					provider: 'facebook',
+					facebook: profile._json,
+					picture: profile.photos[0].value
+				});
+				user.save(function(err) {
+					if (err) console.log(err);
+					return done(err, user);
+				});
+			} else {
 				return done(err, user);
-			});
-		} else {
-			return done(err, user);
-		}
-	});
-}));
+			}
+		});
+	}));
 
 app.use(passport.initialize());
 app.use(passport.session());

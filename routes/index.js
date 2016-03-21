@@ -1,19 +1,8 @@
 /*
  * Routes index.
  */
-var configAuth = {
-	'facebookAuth': {
-		'clientID': '594487354052992', // your App ID
-		'clientSecret': '9028da0d10057701732f8f48459f17cf', // your App Secret
-		'callbackURL': 'http://productfy.herokuapp.com/auth/facebook/callback'
-	}
-};
-
 var kenobi = require('kenobi'),
 	Promises = require('bluebird'),
-	url = require('url'),
-	moment = require('moment'),
-	fs = require('fs'),
 	Product = Promises.promisifyAll(require('../models/product'));
 
 exports.home = function(req, res) {
