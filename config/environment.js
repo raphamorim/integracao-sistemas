@@ -36,8 +36,8 @@ Config.development = {
  */
 Config.production = {
     name: "production",
-    mongo: "mongodb://127.0.0.1:27017/productfy",
-    defaultUrl: "http://productfy.com.br",
+    mongo: "mongodb://root:123@ds021299.mlab.com:21299/heroku_dzjbhph3",
+    defaultUrl: "https://hidden-forest-71159.herokuapp.com/",
     serverPort: 80,
     logNamespace: "production",
     log4js: {
