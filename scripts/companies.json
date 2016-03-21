@@ -1,0 +1,19 @@
+{
+    "companies": [
+        {
+            "name": "We Do Logos",
+            "description": "Descrição da weDoLogos",
+            "category": "design",
+            "slug": "we-do-logos",
+            "logo": "img/wdl-logo.png",
+            "email": "contato@wedologos.com.br",
+            "address": {
+                "location": "Av. Ayrton Senna, 3000, Bloco Grumari, sala 3027 Oce do Shopping Via Parque Barra da Tijuca",
+                "number": "3000",
+                "city": "Rio de Janeiro",
+                "state": "RJ",
+                "full": "Av. Ayrton Senna, 3000, Bloco Grumari, sala 3027 Oce do Shopping Via Parque Barra da Tijuca - Rio de Janeiro - RJ"
+            }
+        }
+    ]
+}

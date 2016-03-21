@@ -1,0 +1,42 @@
+body, html {
+  height: 100%; }
+
+body {
+  background: #212121;
+  color: #fff;
+  font-family: 'Oswald', sans-serif; }
+
+.facebook {
+  background-color: #0079ce;
+  border: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #FFF;
+  font-size: 20px;
+  cursor: pointer;
+  height: 50px;
+  width: 250px;
+}
+
+.container {
+  margin-top: 200px;
+}
+
+.container h1 {
+  /*text-align: center;*/
+  font-size: 160px; 
+  margin-bottom: 20px;
+}
+
+.container h2 {
+  /*text-align: center;*/
+  font-size: 50px; 
+  color: orange;
+  margin-left: 60px;
+}
+
+.container p {
+  margin-top: 50px;
+  margin-left: 130px;
+}

@@ -1,0 +1,5 @@
+.env
+node_modules/
+*.log
+views/templates/.DS_Store
+.DS_Store

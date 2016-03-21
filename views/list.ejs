@@ -1,0 +1,69 @@
+<% var pageTitle = 'Product List' %>
+<% include partials/header %>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <!-- Custom for this template -->
+  <link href="/css/app.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="fb">
+  <p><img src="<%= _.user.picture %>" alt="User"></p>
+  <p><br><%= _.user.facebook.name %></p>
+</div>
+
+<div class="responsive">
+<ul class="content">
+  <% if (_.products.length) { %>
+        <% _.products.forEach(function(product){ %>
+  <li>
+    <div class="card-front">
+      <h2><b><%= product.name %></b></h2>
+      <p><%= product.description %></p>
+    </div>
+    <div class="card-back">
+      <h2><b>Veja +</b></h2>
+    </div>
+
+    <!-- Content -->
+    <div class="all-content">
+      <h2 style="padding-left: 30px;"><%= product.name %></h2>
+      <h1>$<%= product.value %></h1>
+    </div>
+  </li>
+    <% }) %>
+  <% } %>
+</ul>
+</div>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script>
+$('.all-content').hide();
+
+var bgColor;
+var effect = 'animated bounceInLeft'; /* bounceIn, bounceInUp, bounceInDown, bounceInLeft,
+                     bounceInRight, rotateIn, rotateInUpLeft, rotateInDownLeft,
+                     rotateInUpRight, rotateInDownRight  */
+
+$('.content li').click(function(){
+  $('.card-front, .card-back').hide();
+  $('.content li').removeClass('active').hide().css('border','none');
+  $(this).addClass('active').show();
+  bgColor = $('.active .card-back').css('background-color');
+  $('.content').css('background-color',bgColor);
+  $('.close, .all-content').show();
+  $('.responsive').append('<span class="close">fechar</span>').addClass(effect);
+});
+
+
+$('.responsive').on('click', '.close', function(){
+
+  $('.close').remove();
+  bgColor = $('.active .card-front').css('background-color');
+  $('.responsive').removeClass(effect);
+  $('.all-content').hide();
+  $('.content li').removeClass('active').show().css({ 'border-bottom':'1px solid #2c2c2c',
+                              'border-left':'1px solid #2c2c2c' });
+  $('.card-front, .card-back').show();
+  $('.content').css('background-color',bgColor);
+});
+</script>
+</html>
